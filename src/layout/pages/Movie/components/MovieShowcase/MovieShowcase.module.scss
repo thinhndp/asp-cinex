@@ -1,0 +1,68 @@
+.showcase {
+  // padding-top: 70px;
+  // z-index: 0;
+  // background: url('https://images.wallpapersden.com/image/download/batman-vs-superman-hd-images_39935_3840x2160.jpg');
+  width: 100% !important;
+  height: 100vh !important;
+  // background-position: center;
+  background-size: cover !important;
+  position: relative !important;
+
+  .opacity-layer {
+    background-color: black;
+    opacity: 0.5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    // z-index: 9;
+  }
+
+  .showcase-inner-container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .play-button-container {
+      // z-index: 10;
+      cursor: pointer;
+      .play-button {
+        $buttonSize: 60px;
+  
+        border: 2px solid #fff;
+        border-radius: 50%;
+        width: $buttonSize;
+        height: $buttonSize;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 18px;
+  
+        transition: 0.2s;
+  
+        &:hover {
+          width: calc(#{$buttonSize} + 20px);
+          height: calc(#{$buttonSize} + 20px);
+          // font-size: 30px;
+        }
+      }
+    }
+  }
+
+}
+
+.showcase:after {
+  content  : "";
+  position : absolute;
+  bottom   : 0;
+  // background-image : linear-gradient(to bottom, 
+  //                   rgba(255,255,255, 0), 
+  //                   #0B0F18 90%);
+  background-image : linear-gradient(to bottom, 
+                    rgba(255,255,255, 0), 
+                    #0b0f18 90%);
+  width    : 100%;
+  height   : 80px;
+}

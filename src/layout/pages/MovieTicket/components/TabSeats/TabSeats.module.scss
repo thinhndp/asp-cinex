@@ -1,0 +1,248 @@
+.movie-overview {
+  margin-bottom: 100px;
+
+  .movie-overview-header {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: flex-end;
+
+    .movie-overview-header-title {
+      font-size: 60px;
+      line-height: 1em;
+      text-transform: uppercase;
+      width: 700px;
+    }
+    
+    .movie-overview-header-subtitle {
+      padding-left: 30px;
+      padding-bottom: 5px;
+      font-size: 24px;
+      color: #bbb;
+
+      > span {
+        padding-right: 20px;
+      }
+    }
+  }
+
+  .movie-overview-description {
+    font-size: 24px;
+    color: #999;
+  }
+}
+
+.showtime-key {
+  font-size: 20px;
+  color: #999;
+}
+
+.showtime-value {
+  font-size: 22px;
+}
+
+.legends {
+  align-items: flex-end;
+  padding: 0 0 0 60px !important;
+}
+
+.legend {
+  font-size: 20px;
+
+  > i {
+    padding-right: 10px;
+  }
+}
+
+.seat-available {
+  color: #ddd;
+  transition: 0.5s all;
+  cursor: pointer;
+}
+
+.seat-booked {
+  color: #888;
+}
+
+.seat-selected {
+  color: #5a96f0;
+  text-shadow: 0 0 10px #5a96f0;
+  transition: 0.5s all;
+  cursor: pointer;
+}
+
+.screen {
+  width: 100%;
+  //Curved border-top
+  border: solid 5px #ff454e;
+  border-color: #ff454e transparent transparent transparent;
+  border-radius: 50%/30px 30px 0 0;
+  //Screen text
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #aaa;
+  text-shadow: 0px 0px 4px #bbb;
+}
+
+.room {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 50px 15px;
+  border-radius: 50%/30px 30px 0 0;
+
+  .room-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px 0px;
+  }
+
+  .room-row-before, .room-row-after {
+    font-size: 24px;
+    color: #aaa;
+  }
+
+  .room-row-seats {
+    > i {
+      padding: 0 6px;
+      font-size: 30px;
+    }
+  }
+}
+
+.movie-poster-container {
+  .movie-poster {
+    width: 100%;
+    height: auto;
+  }
+  .watch-trailer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .watch-trailer-button {
+      width: 60px;
+      height: 60px;
+      font-size: 20px;
+      background: #ff454e;
+      border-radius: 50%;
+      margin-top: -30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .watch-trailer-text {
+      margin-top: 10px;
+      font-size: 24px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+}
+
+.seats-review {
+  // margin-top: 140px;
+  font-size: 24px;
+
+  .coupon-section {
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+
+    .feedback-container {
+      width: 100%;
+      font-size: 80%;
+      // color: #dc3545;
+      font-size: 16px;
+    }
+
+    .success-feedback {
+      color: #28a745;
+    }
+    .error-feedback {
+      color: #dc3545;
+    }
+
+    .title {
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .input {
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 0;
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .seats-review-info {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px 20px 0;
+  }
+
+  .seats-review-title {
+    color: #aaa;
+  }
+
+  .seats-review-section {
+    display: flex;
+
+    .seats-review-section-title {
+      width: 50%;
+      padding-right: 5px;
+      font-weight: bold;
+    }
+    
+    .seats-review-section-quantity {
+      width: 30%;
+    }
+
+    .seats-review-section-price {
+      width: 20%;
+      text-align: right;
+    }
+  }
+
+  .seats-review-total {
+    display: flex;
+    justify-content: space-between;
+
+    border-top: 1px solid #999;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+
+    .seats-review-total-title {
+      text-transform: uppercase;
+      color: #ff454e;
+    }
+
+    .seats-review-total-price {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+    text-align: center;
+    padding: 8px 0px;
+    font-weight: bold;
+    background: #ff454e;
+    // box-shadow: 0px 0px 5px 0px #fc7e85;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.25s all;
+
+    &:hover {
+      box-shadow: 0px 0px 15px 0px #fc7e85;
+    }
+  }
+}

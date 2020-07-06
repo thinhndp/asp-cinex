@@ -1,0 +1,9 @@
+.my-modal .modal-content {
+  background-color: #0b0f18;
+  color: white;
+  border-radius: 10px;
+}
+
+.my-modal .modal-content .close {
+  color: white;
+}

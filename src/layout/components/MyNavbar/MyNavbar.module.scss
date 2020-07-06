@@ -1,0 +1,75 @@
+.navbar {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+
+  color: white;
+  // background: transparent;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 10px 20px;
+
+  z-index: 1000;
+
+  .navbar-inner-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Concert One', cursive;
+    cursor: pointer;
+
+    .navbar-brand-img {
+      height: 40px;
+      width: 40px;
+      margin-right: 10px;
+    }
+  }
+
+  .navbar-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .search-icon {
+      margin-right: 20px;
+      font-size: 24px;
+    }
+  
+    .profile {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 28px;
+  margin: 0 40px;
+  width: 80px;
+  cursor: pointer;
+  transition: 0.1s all;
+}
+
+.nav-item:hover {
+  font-size: 34px;
+  text-shadow: 0 0 4px #fff;
+}

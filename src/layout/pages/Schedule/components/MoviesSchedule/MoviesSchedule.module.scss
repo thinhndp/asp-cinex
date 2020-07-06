@@ -1,0 +1,276 @@
+// $primary-color: #ff454e;
+// $accent-color: #f73b41;
+// $accent-color: #fc7e85;
+$primary-color: #f44336;
+$darken-color: #b71c1c;
+$accent-color: #ff5252;
+
+.container {
+  position: relative;
+  // margin-top: -400px;
+  color: white;
+
+  .header {
+    .screen-types {
+      display: flex;
+    }
+  }
+
+  .movies {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.label-text {
+  font-size: 24px;
+}
+
+.theater-info-card {
+  border: 1px solid #fff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.movie-container {
+  margin: 80px 0;
+  display: flex;
+  flex-direction: column;
+
+  .movie-info-and-display-dates {
+    display: flex;
+    flex-direction: row;
+
+    .poster-container {
+      width: 260px;
+      .poster {
+        width: 200px;
+        // border-radius: 10px;
+        // height: 370px;
+        // width: 250px;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+    }
+
+    .info-and-display-dates {
+      // margin: 10px 0;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      .info {
+        cursor: pointer;
+        .title {
+          text-transform: uppercase;
+          font-size: 24px;
+          font-weight: bold;
+        }
+        .sub-info {
+        }
+      }
+
+      .display-dates {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+
+        .date-container {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-family: 'Open Sans', sans-serif;
+          user-select: none;
+
+          .date-clickable {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 120px;
+            height: 140px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.4);
+            .day-of-week {
+  
+            }
+            .day-of-month {
+              font-size: 60px;
+              font-family: 'Oswald', sans-serif;
+              font-weight: bold;
+              line-height: 4.6rem;
+            }
+            .month {
+  
+            }
+          }
+
+          .date-clickable:hover {
+            transition: 0.1s all;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            .day-of-week {
+              font-size: 18px;
+              transition: 0.1s all;
+            }
+            .day-of-month {
+              font-size: 65px;
+              transition: 0.1s all;
+            }
+            .month {
+              font-size: 18px;
+              transition: 0.1s all;
+            }
+          }
+
+          .date-clickable-active {
+            // color: $primary-color;
+            color: white;
+          }
+
+          .date-foot {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            .foot-line {
+              height: 1px;
+              background-color: white;
+              width: 100%;
+              transition: 0.2s all;
+            }
+            .foot-circle {
+              height: 14px;
+              width: 14px;
+              border-radius: 100%;
+              // background-color: $primary-color;
+              background-color: white;
+              transition: 0.3s height;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  .screen-type-available {
+    display: flex;
+    flex-direction: column;
+
+    .no-showtime {
+      margin: 5px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      font-size: 24px;
+    }
+
+    .show-time-by-screen-type {
+      margin: 5px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 75px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+
+      .screen-type-container {
+        font-family: 'Oswald', sans-serif;
+        width: 260px;
+        padding-left: 30px;
+        font-weight: bold;
+        font-size: 24px;
+        transition: 0.2s all;
+        user-select: none;
+      }
+      .showtimes-container {
+        display: flex;
+        flex-direction: row;
+        font-family: 'Open Sans', sans-serif;
+        
+        .showtime {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin-right: 20px;
+          color: white;
+          background-color: rgba(0, 0, 0, 0.5);
+          width: 96px;
+          height: 46px;
+          font-weight: bold;
+          border-radius: 8px;
+          user-select: none;
+          cursor: pointer;
+        }
+        .showtime:hover {
+          transition: 0.2s all;
+          background-color: #444;
+        }
+      }
+    }
+  }
+}
+
+.big-text {
+  text-transform: uppercase;
+  font-size: 36px;
+}
+
+.fading-line {
+  margin: 20px 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, $primary-color 0%, $darken-color 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.screen-type-button-active {
+  background-color: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 30px 0 0;
+  width: 160px;
+  height: 50px;
+  font-weight: bold;
+  border-radius: .3rem;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.05rem;
+  user-select: none;
+  transition: 0.2s all;
+}
+
+.screen-type-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 30px 0 0;
+  background-color: #1f1e1d;
+  width: 160px;
+  height: 50px;
+  font-weight: bold;
+  border-radius: .3rem;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.05rem;
+  user-select: none;
+  transition: 0.2s all;
+}
+
+.screen-type-button:hover {
+  background-color: #333;
+}
+
+.screen-type-button-active:hover {
+  background-color: $accent-color;
+}

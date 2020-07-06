@@ -1,0 +1,106 @@
+.showcase {
+  // padding-top: 70px;
+
+  // background: url('https://cdn.onebauer.media/one/media/5d20/5d91/a205/650c/a1d3/d71f/empire-joker-subscriber-cover-crop.jpeg');
+  width: 100%;
+  height: 100vh;
+  // background-position: center;
+  background-size: cover !important;
+  position: relative;
+
+  .opacity-layer {
+    background-color: black;
+    opacity: 0.5;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    // z-index: 9;
+  }
+
+  .showcase-inner-container {
+    position: relative;
+    height: 100%;
+  }
+
+  .title-container {
+    z-index: 10;
+    position: absolute;
+    bottom: 130px;
+    // left: 50px;
+    opacity: 1;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    // padding: 20px;
+
+    cursor: pointer;
+
+    .play-button {
+      $buttonSize: 60px;
+
+      border: 2px solid #fff;
+      border-radius: 50%;
+      width: $buttonSize;
+      height: $buttonSize;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 18px;
+
+      transition: 0.5s;
+
+      &:hover {
+        width: calc(#{$buttonSize} + 20px);
+        height: calc(#{$buttonSize} + 20px);
+        // font-size: 30px;
+      }
+    }
+
+    .title-group {
+      flex-direction: column;
+      padding-left: 20px;
+      line-height: 42px;
+      
+
+      .title {
+        color: white;
+        font-size: 48px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-weight: 200;
+        text-transform: uppercase;
+      }
+      .sub-title {
+        color: white;
+        font-size: 26px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-weight: 200;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.child-centering {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fade-in {
+  animation: fadein 500ms;
+  opacity: 1;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
