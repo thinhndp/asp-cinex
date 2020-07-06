@@ -29,7 +29,7 @@ function App() {
     if (tokenStr) {
       authAPI.checkToken(tokenStr)
         .then(response => {
-          if (response.data === true) {
+          if (response.data.isValid === true) {
             // TODO: Find out if this is the right way to dispatch action in App.js
             store.getActions().auth.setLoginToken(tokenStr);
 

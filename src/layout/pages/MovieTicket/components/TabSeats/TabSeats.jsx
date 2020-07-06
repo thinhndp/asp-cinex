@@ -117,7 +117,7 @@ function TabSeats(props) {
     const data = {
       showtimeId: showtime.id,
       tickets: seatsSelected.map(seatKey => {
-        return { discountName: '', name: seatKey };
+        return { ticketType: 1, seat: seatKey };
       })
     };
     setIsLoadingBuyTicket(true);
@@ -138,7 +138,7 @@ function TabSeats(props) {
   }
 
   const getTotalPrice = () => {
-    var total = seatsSelected.length * showtime.price;
+    var total = seatsSelected.length * showtime.basePrice;
     if (isCouponInEffect && isUsingCoupon) {
       total *= (1 - couponDiscountRate);
     }
@@ -283,7 +283,7 @@ function TabSeats(props) {
                 <div className={classes['seats-review-section-quantity']}>
                   {seatsSelected.length}
                 </div>
-                <div className={classes['seats-review-section-price']}>${showtime.price}</div>
+                <div className={classes['seats-review-section-price']}>${showtime.basePrice}</div>
               </div>
               <div className={classes['seats-review-total']}>
                 <div className={classes['seats-review-total-title']}>
@@ -350,7 +350,7 @@ function TabSeats(props) {
                       <Button
                         onClick={onCheckCouponClick}
                         variant="primary"
-                      >Kiểm tra</Button>
+                      >Check</Button>
                     </InputGroup.Append>
                   </InputGroup>
                   <div
