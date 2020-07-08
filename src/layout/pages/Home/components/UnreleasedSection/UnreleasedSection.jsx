@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import { Spinner } from 'react-bootstrap';
 
 import classes from './UnreleasedSection.module.scss';
+import moment from 'moment';
 
 const UnreleasedSection = (props) => {
   // var history = useHistory();
@@ -25,7 +26,7 @@ const { movies } = props;
             props.movies.map((movie) => (
                 <div className={classes['unreleased-movie-item']} key={movie.id}>
                   <div className={classes['unreleased-movie-item-date']}>
-                    {movie.released}
+                    {moment(movie.releasedAt).format('DD/MM/YYYY')}
                   </div>
                   <div className={classes['cai-duong-ke-ngang-voi-hinh-tron']}>
                     <div className={classes['cai-duong-ngang-ben-phai']}></div>

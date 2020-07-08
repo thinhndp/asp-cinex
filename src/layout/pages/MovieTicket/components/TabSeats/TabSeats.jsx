@@ -63,22 +63,22 @@ function TabSeats(props) {
       return;
     }
     discountAPI.checkDiscountIsValid(couponCode)
-    .then((res) => {
-      console.log(res.data);
-      if (!res.data) {
-        setCouponFeedbackShowing(true);
-        setCouponFeedbackText('Invalid or inactive Coupon');
-      }
-      else {
-        setCouponFeedbackShowing(true);
-        setCouponFeedbackText('Nice! What a bargain');
-        setIsCouponInEffect(true);
-        setCouponDiscountRate(res.data.discount / 100.0);
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .then((res) => {
+        console.log(res.data);
+        if (!res.data) {
+          setCouponFeedbackShowing(true);
+          setCouponFeedbackText('Invalid or inactive Coupon');
+        }
+        else {
+          setCouponFeedbackShowing(true);
+          setCouponFeedbackText('Nice! What a bargain');
+          setIsCouponInEffect(true);
+          setCouponDiscountRate(res.data.discount / 100.0);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   const onClickSeat = (seatKey) => {
@@ -116,8 +116,8 @@ function TabSeats(props) {
 
     const data = {
       showtimeId: showtime.id,
-      tickets: seatsSelected.map(seatKey => {
-        return { ticketType: 1, seat: seatKey };
+      seats: seatsSelected.map(seatKey => {
+        return { ticketType: 0, seat: seatKey };
       })
     };
     setIsLoadingBuyTicket(true);
@@ -152,7 +152,7 @@ function TabSeats(props) {
       let divsSeat = [];
       const letter = (i + 10).toString(36).toUpperCase(); // Convert number to letter
       for (let j = 0; j < showtime.room.totalSeatsPerRow; j++) {
-        const seatKey = `${letter}${j}`
+        const seatKey = j <= 9 ? `${letter}0${j}` : `${letter}${j}`
 
         let className = '';
         if (seatsBookedState.includes(seatKey)) {
@@ -202,7 +202,7 @@ function TabSeats(props) {
               </div>
             </div>
             <div className={classes['movie-overview-description']}>
-              {showtime.movie.storyline}
+              {showtime.movie.story}
             </div>
           </div>
 

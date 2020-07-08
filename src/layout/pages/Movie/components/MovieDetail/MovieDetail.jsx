@@ -240,7 +240,7 @@ const MovieDetail = (props) => {
                   <div className={classes['normal-text']}>Country: <span className={classes['sub-text']}>{movie.country}</span></div>
                   {/* <div className={classes['normal-text']}>Language: <span className={classes['sub-text']}>{movie.language}</span></div> */}
                   <div className={classes['normal-text']}>Language: <span className={classes['sub-text']}>English</span></div>
-                  <div className={classes['normal-text']}>Release Date: <span className={classes['sub-text']}>{movie.released}</span></div>
+                  <div className={classes['normal-text']}>Release Date: <span className={classes['sub-text']}>{moment(movie.releasedAt).format('DD/MM/YYYY')}</span></div>
                 </div>
                 <div className={classes['cast']}>
                   <div className={classes['section-name-text']}>Cast</div>
@@ -279,7 +279,7 @@ const MovieDetail = (props) => {
               <hr className={classes["line"]}/>
               <div className={classes['storyline']}>
                 <div className={classes['section-name-text']}>Storyline</div>
-                <div className={classes['normal-text']}>{movie.storyline}</div>
+                <div className={classes['normal-text']}>{movie.story}</div>
               </div>
             </div>
           </div>

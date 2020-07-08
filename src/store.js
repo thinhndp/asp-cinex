@@ -23,7 +23,7 @@ export const store = createStore({
       
       // Attach Token to request header
       axios.interceptors.request.use(function (config) {
-        config.headers.Authorization = payload;
+        config.headers.Authorization = 'Bearer ' + payload;
         return config;
       });
     }),

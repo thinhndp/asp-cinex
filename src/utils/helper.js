@@ -42,7 +42,7 @@ export const helper = {
     if (!array || array.length < 2) {
       return array;
     }
-    return array.sort((movie1, movie2) => (new Date(movie1.released) - new Date(movie2.released)) )
+    return array.sort((movie1, movie2) => (new Date(movie1.releasedAt) - new Date(movie2.releasedAt)) )
   },
   sortShowtimesByStartAt(array) {
     // console.log(array);
