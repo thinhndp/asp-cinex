@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useStoreState } from 'easy-peasy';
 import { helper } from '../../../../../utils/helper';
 import * as ticketAPI from '../../../../../api/ticketAPI';
-import * as discountAPI from '../../../../../api/discountAPI';
+import * as promotionAPI from '../../../../../api/promotionAPI';
 
 import { Container, Spinner, InputGroup, FormControl, Button, Form } from 'react-bootstrap';
 import FsLightbox from 'fslightbox-react';
@@ -29,7 +29,8 @@ function TabSeats(props) {
   const [couponCode, setCouponCode] = useState('');
   const [couponFeedbackText, setCouponFeedbackText] = useState('Invalid');
   const [isCouponInEffect, setIsCouponInEffect] = useState(false);
-  const [couponDiscountRate, setCouponDiscountRate] = useState(0);
+  const [promotionCode, setPromotionCode] = useState(null);
+  const [couponDiscountAmount, setCouponDiscountAmount] = useState(0);
 
   const [messageBuy, setMessageBuy] = useState('');
 
@@ -56,24 +57,28 @@ function TabSeats(props) {
   const onCheckCouponClick = () => {
     if (isCouponInEffect) {
       setIsCouponInEffect(false);
+      setCouponDiscountAmount(0);
+      setPromotionCode(null);
     }
-    if (couponCode.length < 4 || couponCode.length > 6) {
-      setCouponFeedbackShowing(true);
-      setCouponFeedbackText('Must be from 4-6 characters')
-      return;
-    }
-    discountAPI.checkDiscountIsValid(couponCode)
+    // if (couponCode.length < 4 || couponCode.length > 6) {
+    //   setCouponFeedbackShowing(true);
+    //   setCouponFeedbackText('Must be from 4-6 characters')
+    //   return;
+    // }
+
+    promotionAPI.checkPromotion(couponCode)
       .then((res) => {
         console.log(res.data);
-        if (!res.data) {
-          setCouponFeedbackShowing(true);
-          setCouponFeedbackText('Invalid or inactive Coupon');
-        }
-        else {
+        if (res.data && res.data.isActive === true) {
           setCouponFeedbackShowing(true);
           setCouponFeedbackText('Nice! What a bargain');
           setIsCouponInEffect(true);
-          setCouponDiscountRate(res.data.discount / 100.0);
+          setCouponDiscountAmount(res.data.discountAmount);
+          setPromotionCode(res.data.code);
+        }
+        else {
+          setCouponFeedbackShowing(true);
+          setCouponFeedbackText('Invalid or inactive Coupon');
         }
       })
       .catch((err) => {
@@ -117,7 +122,11 @@ function TabSeats(props) {
     const data = {
       showtimeId: showtime.id,
       seats: seatsSelected.map(seatKey => {
-        return { ticketType: 0, seat: seatKey };
+        return {
+          ticketType: 0,
+          seat: seatKey,
+          promotionCode: promotionCode,
+        };
       })
     };
     setIsLoadingBuyTicket(true);
@@ -138,11 +147,11 @@ function TabSeats(props) {
   }
 
   const getTotalPrice = () => {
-    var total = seatsSelected.length * showtime.basePrice;
-    if (isCouponInEffect && isUsingCoupon) {
-      total *= (1 - couponDiscountRate);
-    }
-    return Math.round(total * 100) / 100;
+    var total = seatsSelected.length * showtime.basePrice - seatsSelected.length * couponDiscountAmount;
+    // if (isCouponInEffect && isUsingCoupon) {
+    //   total *= (1 - couponDiscountAmount);
+    // }
+    return total;
   }
 
   const renderSeats = () => {
