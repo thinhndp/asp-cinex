@@ -39,7 +39,7 @@ function Home(props) {
   }, []);
 
   const getNowOnMovies = () => {
-    movieAPI.getAllMovies()
+    movieAPI.getAllNowOnMovies()
       .then(response => {
         console.log(response);
         setNowOnMovies(response.data);
